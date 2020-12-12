@@ -25,7 +25,7 @@ socket.on("dnbradio", function (data) {
 	}
 
 	if (data.command == "tune") {
-		let stream = streams[-1 + data.args[0]] || streams[0];
+		let stream = streams[data.args[0] - 1] || streams[0];
 		let e = document.querySelector("#dnbradio-tuner");
 		if (e) e.remove();
 		insertPlayer(stream).play();
